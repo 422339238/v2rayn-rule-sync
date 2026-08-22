@@ -1,0 +1,176 @@
+[
+  {
+    "Id": "4448580384127208236",
+    "OutboundTag": "direct",
+    "Domain": [
+      "domain:uuyc.163.com",
+      "domain:mofang.163.com",
+      "domain:nrd.nie.163.com",
+      "domain:gameviewer.com",
+      "domain:adl.netease.com",
+      "domain:gv.163.com",
+      "domain:fcount-api.webapp.163.com",
+      "domain:weiyun.com",
+      "domain:weiyun.qq.com"
+    ],
+    "Process": [
+      "UURemote",
+      "UURemoteService",
+      "UURemoteDaemon",
+      "UURemoteServer",
+      "UURemoteHelper",
+      "uuyc-cli",
+      "UURemoteUpdater",
+      "WeiyunResona",
+      "/Applications/UURemote.app/Contents/MacOS/UURemote",
+      "/Applications/UURemote.app/Contents/MacOS/UURemoteService",
+      "/Applications/UURemote.app/Contents/MacOS/UURemoteDaemon",
+      "/Applications/UURemote.app/Contents/Helpers/UURemoteServer",
+      "/Applications/UURemote.app/Contents/XPCServices/UURemoteHelper.xpc/Contents/MacOS/UURemoteHelper",
+      "/Applications/UURemote.app/Contents/Helpers/uuyc-cli",
+      "/Applications/UURemote.app/Contents/Helpers/UURemoteUpdater.app/Contents/MacOS/UURemoteUpdater",
+      "/Applications/WeiyunResona.app/Contents/MacOS/WeiyunResona"
+    ],
+    "Enabled": true,
+    "Remarks": "UU远程 / 腾讯微云直连"
+  },
+  {
+    "Id": "1785838927972",
+    "OutboundTag": "direct",
+    "Ip": [
+      "100.64.0.0/10",
+      "fd7a:115c:a1e0::/48"
+    ],
+    "Domain": [
+      "domain:tailscale.com",
+      "domain:tailscale.io",
+      "domain:ts.net"
+    ],
+    "Process": [
+      "Tailscale",
+      "tailscale",
+      "tailscaled",
+      "IPNExtension",
+      "io.tailscale.ipn.macsys.network-extension",
+      "TailscaleLoginItemHelper-macsys",
+      "tssentineld",
+      "ShareExtension-macsys",
+      "/Applications/Tailscale.app/Contents/MacOS/Tailscale",
+      "/Applications/Tailscale.app/Contents/Library/LaunchDaemons/tssentineld",
+      "/Applications/Tailscale.app/Contents/Library/LoginItems/TailscaleLoginItemHelper-macsys.app/Contents/MacOS/TailscaleLoginItemHelper-macsys",
+      "/Applications/Tailscale.app/Contents/Library/SystemExtensions/io.tailscale.ipn.macsys.network-extension.systemextension/Contents/MacOS/io.tailscale.ipn.macsys.network-extension",
+      "/Applications/Tailscale.app/Contents/PlugIns/ShareExtension-macsys.appex/Contents/MacOS/ShareExtension-macsys"
+    ],
+    "Enabled": true,
+    "Remarks": "Tailscale 直连"
+  },
+  {
+    "Id": "5476117781075815648",
+    "Port": "443",
+    "Network": "udp",
+    "OutboundTag": "block",
+    "Enabled": true,
+    "Remarks": "阻断udp443"
+  },
+  {
+    "Id": "4645182276722616231",
+    "OutboundTag": "proxy",
+    "Domain": [
+      "geosite:google"
+    ],
+    "Enabled": true,
+    "Remarks": "代理Google"
+  },
+  {
+    "Id": "5493040543011134494",
+    "OutboundTag": "direct",
+    "Ip": [
+      "geoip:private"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过局域网IP"
+  },
+  {
+    "Id": "4876601306821815555",
+    "OutboundTag": "direct",
+    "Domain": [
+      "geosite:private"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过局域网域名"
+  },
+  {
+    "Id": "4845190382840656259",
+    "OutboundTag": "direct",
+    "Ip": [
+      "223.5.5.5",
+      "223.6.6.6",
+      "2400:3200::1",
+      "2400:3200:baba::1",
+      "119.29.29.29",
+      "1.12.12.12",
+      "120.53.53.53",
+      "2402:4e00::",
+      "2402:4e00:1::",
+      "180.76.76.76",
+      "2400:da00::6666",
+      "114.114.114.114",
+      "114.114.115.115",
+      "114.114.114.119",
+      "114.114.115.119",
+      "114.114.114.110",
+      "114.114.115.110",
+      "180.184.1.1",
+      "180.184.2.2",
+      "101.226.4.6",
+      "218.30.118.6",
+      "123.125.81.6",
+      "140.207.198.6",
+      "1.2.4.8",
+      "210.2.4.8",
+      "52.80.66.66",
+      "117.50.22.22",
+      "2400:7fc0:849e:200::4",
+      "2404:c2c0:85d8:901::4",
+      "117.50.10.10",
+      "52.80.52.52",
+      "2400:7fc0:849e:200::8",
+      "2404:c2c0:85d8:901::8",
+      "117.50.60.30",
+      "52.80.60.30"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过中国公共DNSIP"
+  },
+  {
+    "Id": "5449098987785835256",
+    "OutboundTag": "direct",
+    "Domain": [
+      "domain:alidns.com",
+      "domain:doh.pub",
+      "domain:dot.pub",
+      "domain:360.cn",
+      "domain:onedns.net"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过中国公共DNS域名"
+  },
+  {
+    "Id": "4655991431812900900",
+    "OutboundTag": "direct",
+    "Ip": [
+      "geoip:cn"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过中国IP"
+  },
+  {
+    "Id": "5225928179517526295",
+    "OutboundTag": "direct",
+    "Domain": [
+      "geosite:cn"
+    ],
+    "Enabled": true,
+    "Remarks": "绕过中国域名"
+  }
+]
