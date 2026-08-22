@@ -38,6 +38,16 @@ python apply_rule.py --file routing-rules.json
 
 数据库自动备份在 `guiConfigs/pi-sync-backups/`。
 
+**Mac 注意**：本 Mac 的 TUN 由 `manualTun` 独立托管（sing-box 直跑，不经 GUI），
+请使用专用脚本：
+
+```bash
+python3 mac_manualtun_apply.py          # 拉主文件 + 更新数据库 + 同步 manualTun 配置 + 重启 TUN 内核
+python3 mac_manualtun_apply.py --file routing-rules.json
+```
+
+该脚本每次先备份（`v2rayN/backups/pi-sync-<时间>/`），并会自动清理空列表/重复规则。
+
 ## 修改规则的流程（一次修改，处处生效）
 
 1. 在任意一台设备的 v2rayN GUI 里：路由设置 → 修改/新增规则
