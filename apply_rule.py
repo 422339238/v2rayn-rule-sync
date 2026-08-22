@@ -25,6 +25,8 @@ from pathlib import Path
 
 RAW_URL = ("https://raw.githubusercontent.com/422339238/"
            "v2rayn-rule-sync/main/routing-rules.json")
+API_URL = ("https://api.github.com/repos/422339238/"
+           "v2rayn-rule-sync/contents/routing-rules.json")
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -115,9 +117,17 @@ def fetch_rules(args):
         with open(args.file, encoding="utf-8") as f:
             return json.load(f)
     print("从 GitHub 拉取主文件 ...")
-    req = urllib.request.Request(RAW_URL, headers={"User-Agent": "v2rayn-rule-sync"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.load(resp)
+    try:
+        # API 永远最新（避免 raw 缓存延迟）
+        req = urllib.request.Request(API_URL, headers={"User-Agent": "v2rayn-rule-sync"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            meta = json.load(resp)
+        import base64
+        data = json.loads(base64.b64decode(meta["content"]).decode("utf-8"))
+    except Exception:
+        req = urllib.request.Request(RAW_URL, headers={"User-Agent": "v2rayn-rule-sync"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
     print(f"拉取成功，共 {len(data)} 条规则")
     return data
 
