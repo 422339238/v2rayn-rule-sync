@@ -6,9 +6,10 @@ v2rayN 路由规则统一来源仓库：**在一个地方改规则，所有设�
 
 - `routing-rules.json` 是本仓库里唯一的规则主文件（v2rayN 路由规则格式，即 v2rayN「路由设置 → 导出规则」的文件格式）。
 - 所有设备（Windows / macOS 的 v2rayN）从一个同一地址拉取：`https://raw.githubusercontent.com/422339238/v2rayn-rule-sync/main/routing-rules.json`
-- 当前主文件内容：`V4-绕过大陆(Whitelist)` 规则集，包含：
-  - UU远程 / 腾讯微云直连（域名 + 进程名）
-  - Tailscale 直连（域名 + IP 段 + 进程名）
+- 当前主文件内容：`V4-绕过大陆(Whitelist)` 规则集（11 条），包含：
+  - UU远程 / 腾讯微云直连（域名 + 进程名，macOS + Windows）
+  - Tailscale 直连（域名 + IP 段 + 进程名，macOS + Windows 进程名变体）
+  - GLM抢单直连（bigmodel.cn / qcloud.com）
   - 阻断 udp443、代理 Google、绕过局域网 IP/域名、绕过中国公共 DNS IP/域名、绕过中国 IP/域名
 
 ## 设备应用（两选一）

@@ -59,10 +59,25 @@
       "/Applications/Tailscale.app/Contents/Library/LaunchDaemons/tssentineld",
       "/Applications/Tailscale.app/Contents/Library/LoginItems/TailscaleLoginItemHelper-macsys.app/Contents/MacOS/TailscaleLoginItemHelper-macsys",
       "/Applications/Tailscale.app/Contents/Library/SystemExtensions/io.tailscale.ipn.macsys.network-extension.systemextension/Contents/MacOS/io.tailscale.ipn.macsys.network-extension",
-      "/Applications/Tailscale.app/Contents/PlugIns/ShareExtension-macsys.appex/Contents/MacOS/ShareExtension-macsys"
+      "/Applications/Tailscale.app/Contents/PlugIns/ShareExtension-macsys.appex/Contents/MacOS/ShareExtension-macsys",
+      "tailscale-ipn",
+      "tailscale-ipn.exe",
+      "tailscaled.exe",
+      "tailscale.exe"
     ],
     "Enabled": true,
     "Remarks": "Tailscale 直连"
+  },
+  {
+    "Id": "2063234708192892596",
+    "OutboundTag": "direct",
+    "Domain": [
+      "domain:bigmodel.cn",
+      "domain:turing.captcha.qcloud.com",
+      "domain:qcloud.com"
+    ],
+    "Enabled": true,
+    "Remarks": "GLM抢单直连"
   },
   {
     "Id": "5476117781075815648",
