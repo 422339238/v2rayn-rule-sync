@@ -63,10 +63,23 @@ def is_running():
     return bool(out.strip())
 
 
+def task_exists():
+    """Windows 上 v2rayN 通常由计划任务启动。"""
+    if not sys.platform.startswith("win"):
+        return False
+    r = subprocess.run(["schtasks", "/query", "/tn", "v2rayN"],
+                       capture_output=True, text=True)
+    return r.returncode == 0
+
+
 def quit_v2rayn():
     if not is_running():
         return True
     if sys.platform.startswith("win"):
+        if task_exists():
+            subprocess.run(["schtasks", "/end", "/tn", "v2rayN"],
+                           capture_output=True, text=True)
+            time.sleep(1)
         subprocess.run(["taskkill", "/IM", "v2rayN.exe", "/F"], capture_output=True)
     else:
         subprocess.run(["osascript", "-e", 'tell application "v2rayN" to quit'],
@@ -83,6 +96,10 @@ def quit_v2rayn():
 
 def start_v2rayn(db_path):
     if sys.platform.startswith("win"):
+        if task_exists():
+            subprocess.run(["schtasks", "/run", "/tn", "v2rayN"],
+                           capture_output=True, text=True)
+            return True
         exe = db_path.parents[1] / "v2rayN.exe"
         if exe.is_file():
             subprocess.Popen([str(exe)], cwd=str(exe.parent))
